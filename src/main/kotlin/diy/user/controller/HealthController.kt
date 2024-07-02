@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*
 class HealthController() {
     @Operation(summary = "물품등록 요청", description = "물품 등록을 진행할 수 있다.", tags = ["addItem"])
     @RequestMapping(value = ["/status"], method = [RequestMethod.GET])
-    fun info(@Value("\${server.port}") port: String): String? {
-        return "서비스의 기본 동작 Port: {$port}"
+    fun info(@Value("\${server.port}") port: String, @Value("\${spring.application.name}") service: String): String? {
+        return "{$service} 서비스의 기본 동작 Port: {$port}"
     }
 }

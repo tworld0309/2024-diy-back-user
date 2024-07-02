@@ -3,9 +3,10 @@ spring:
     name: user
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/mydatabase
-    username: myuser
-    password: mypassword
+    url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/mydb
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+
   jpa:
     database: postgresql
     hibernate:
@@ -17,16 +18,4 @@ spring:
         show_sql: true
         use_sql_comments: true
     open-in-view: false
-
-server:
-  port: 8080
-
-logging:
-  file:
-    name: logs/api-local.log
-    max-size: 500MB
-    max-history: 10
-  level:
-    root: info
-    diy.user: debug
 
